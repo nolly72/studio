@@ -147,37 +147,74 @@
         </div>
     </section>
 
-    <!-- Интерактивный Премиум Ассистент -->
-    <div class="assistant-widget" id="assistantWidget">
-        <div class="assistant-badge" id="assistantBadge">
-            <div class="pulse-ring"></div>
-            <span>✨ Aura Ассистент</span>
-        </div>
-        <div class="assistant-window" id="assistantWindow">
-            <div class="assistant-header">
-                <h3>Ваш личный ассистент Кристина</h3>
-                <button id="closeAssistant">&times;</button>
-            </div>
-            <div class="assistant-body" id="chatBody">
-                <div class="msg system">Здравствуйте! Рада приветствовать вас в AURA PRESTIGE. Какая процедура вас интересует? Выберите вариант или напишите мне.</div>
-            </div>
-            <div class="assistant-footer">
-                <div class="quick-replies">
-                    <button class="reply-btn">Записаться на окрашивание</button>
-                    <button class="reply-btn">Цены на маникюр</button>
-                    <button class="reply-btn">Как к нам пройти?</button>
-                </div>
-                <div class="input-wrap">
-                    <input type="text" id="assistantInput" placeholder="Ваш вопрос...">
-                    <button id="sendMessage">⚡</button>
-                </div>
+<!-- Интерактивный Ассистент-Квиз -->
+<div class="assistant-widget" id="assistantWidget">
+    <div class="widget-header">
+        <div class="assistant-info">
+            <div class="assistant-avatar">✨</div>
+            <div>
+                <h4>Ваш AI-Ассистент</h4>
+                <p>Подбор идеального ухода</p>
             </div>
         </div>
+        <button class="close-btn" id="closeWidget">&times;</button>
     </div>
 
-    <footer class="main-footer">
-        <p>&copy; 2026 AURA PRESTIGE LUXURY STUDIO. Все права защищены.</p>
-    </footer>
+    <!-- Форма отправки (Исправлено: теперь данные отправляются на сервер Web3Forms) -->
+    <form id="assistantForm" action="https://web3forms.com" method="POST">
+        <!-- Твой ключ доступа от Web3Forms (получи бесплатно на web3forms.com) -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <!-- Тема письма -->
+        <input type="hidden" name="subject" value="Новая премиум-запись с сайта салона!">
+
+        <!-- Квиз: Шаг 1 -->
+        <div class="quiz-step active" data-step="1">
+            <p class="quiz-question">Какую зону вы хотите преобразить?</p>
+            <div class="quiz-options">
+                <label class="quiz-opt"><input type="radio" name="зона" value="Волосы" required><span>Волосы (Окрашивание, Уход)</span></label>
+                <label class="quiz-opt"><input type="radio" name="зона" value="Лицо"><span>Лицо (Косметология, Макияж)</span></label>
+                <label class="quiz-opt"><input type="radio" name="зона" value="Ногти"><span>Ногти (Маникюр, Педикюр)</span></label>
+                <label class="quiz-opt"><input type="radio" name="зона" value="Тело"><span>Тело (SPA, Массаж)</span></label>
+            </div>
+        </div>
+
+        <!-- Квиз: Шаг 2 -->
+        <div class="quiz-step" data-step="2">
+            <p class="quiz-question">Какой результат для вас в приоритете?</p>
+            <div class="quiz-options">
+                <label class="quiz-opt"><input type="radio" name="результат" value="Вау-эффект для мероприятия"><span>Вау-эффект для мероприятия</span></label>
+                <label class="quiz-opt"><input type="radio" name="результат" value="Глубокое восстановление и здоровье"><span>Глубокое восстановление и здоровье</span></label>
+                <label class="quiz-opt"><input type="radio" name="результат" value="Регулярный поддерживающий уход"><span>Регулярный поддерживающий уход</span></label>
+            </div>
+        </div>
+
+        <!-- Квиз: Шаг 3 -->
+        <div class="quiz-step" data-step="3">
+            <p class="quiz-question">Когда вы планируете визит?</p>
+            <div class="quiz-options">
+                <label class="quiz-opt"><input type="radio" name="время" value="Ближайшие 1-2 дня"><span>Ближайшие 1-2 дня</span></label>
+                <label class="quiz-opt"><input type="radio" name="время" value="На этой неделе"><span>На этой неделе</span></label>
+                <label class="quiz-opt"><input type="radio" name="время" value="В выходные дни"><span>В выходные дни</span></label>
+            </div>
+        </div>
+
+        <!-- Квиз: Шаг 4 (Финальный сбор контактов) -->
+        <div class="quiz-step" data-step="4">
+            <p class="quiz-question">Куда отправить персональное предложение и забронировать время?</p>
+            <div class="quiz-inputs">
+                <input type="text" name="name" id="clientName" placeholder="Ваше имя" required class="premium-input">
+                <input type="tel" name="phone" id="clientPhone" placeholder="+7 (999) 999-99-99" required class="premium-input">
+            </div>
+        </div>
+
+        <!-- Навигация Квиза -->
+        <div class="quiz-navigation">
+            <button type="button" id="prevBtn" class="quiz-nav-btn" style="display: none;">Назад</button>
+            <button type="button" id="nextBtn" class="quiz-nav-btn next">Далее</button>
+            <button type="submit" id="submitBtn" class="submit-btn" style="display: none;">Получить привилегии ✨</button>
+        </div>
+    </form>
+</div>
 
     <script src="script.js"></script>
 </body>

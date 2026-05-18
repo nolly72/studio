@@ -612,3 +612,122 @@ h1, h2, h3 {
         display: block;
     }
     
+
+    /* --- СТИЛИ ДЛЯ РАБОЧЕГО АССИСТЕНТА-КВИЗА --- */
+.quiz-step {
+    display: none; /* Скрываем все шаги по умолчанию */
+    animation: fadeIn 0.4s ease-out;
+}
+
+.quiz-step.active {
+    display: block; /* Показываем только активный шаг */
+}
+
+.quiz-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.quiz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+/* Красивые кастомные кнопки-варианты */
+.quiz-opt {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    padding: 14px 20px;
+    background: #fff;
+    border: 1px solid rgba(230, 115, 159, 0.2);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #4a4a4a;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+/* Скрываем стандартный дефолтный кружок радио-кнопки */
+.quiz-opt input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.quiz-opt:hover {
+    border-color: #e6739f;
+    background: rgba(255, 240, 245, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Стиль для выбранного варианта ответа */
+.quiz-opt:has(input[type="radio"]:checked) {
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+    border-color: #e6739f;
+    box-shadow: 0 4px 15px rgba(230, 115, 159, 0.2);
+    font-weight: 600;
+    color: #b84a74;
+}
+
+/* Финальные инпуты */
+.quiz-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.premium-input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid rgba(230, 115, 159, 0.3);
+    border-radius: 12px;
+    font-size: 1rem;
+    background: #fff;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.premium-input:focus {
+    border-color: #e6739f;
+    box-shadow: 0 0 10px rgba(230, 115, 159, 0.2);
+}
+
+/* Кнопки навигации */
+.quiz-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.quiz-nav-btn {
+    flex: 1;
+    padding: 14px;
+    border: 1px solid #e6739f;
+    background: transparent;
+    color: #e6739f;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.quiz-nav-btn.next {
+    background: linear-gradient(135deg, #ff8da1, #e6739f);
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(230, 115, 159, 0.3);
+}
+
+.quiz-nav-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
