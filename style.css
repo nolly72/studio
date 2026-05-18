@@ -613,6 +613,116 @@ h1, h2, h3 {
     }
     
 
+/* --- БАЗОВЫЕ СТИЛИ КОНТЕЙНЕРА АССИСТЕНТА (ФИКСАЦИЯ В УГЛУ) --- */
+.assistant-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 380px;
+    max-width: calc(100vw - 40px);
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 15px 45px rgba(230, 115, 159, 0.15);
+    border: 1px solid rgba(230, 115, 159, 0.2);
+    z-index: 10000;
+    overflow: hidden;
+    display: none; /* Скрыт по умолчанию, JS покажет при клике */
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Класс, который JS добавляет при открытии */
+.assistant-widget.active {
+    display: flex;
+    animation: slideUp 0.4s ease-out;
+}
+
+.widget-header {
+    background: linear-gradient(135deg, #ffe4e1 0%, #fff0f5 100%);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(230, 115, 159, 0.1);
+}
+
+.assistant-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.assistant-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ff8da1, #e6739f);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(230, 115, 159, 0.3);
+}
+
+.assistant-info h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: #2c2c2c;
+    margin: 0 0 2px 0;
+}
+
+.assistant-info p {
+    font-size: 0.75rem;
+    color: #7a7a7a;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: #e6739f;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.close-btn:hover {
+    transform: scale(1.2);
+}
+
+#assistantForm {
+    padding: 25px;
+    background: #fff;
+}
+
+/* Анимация плавного появления */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Адаптив под мобильные телефоны */
+@media (max-width: 480px) {
+    .assistant-widget {
+        bottom: 0;
+        right: 0;
+        width: 100vw;
+        max-width: 100vw;
+        border-radius: 24px 24px 0 0;
+    }
+}
+
+
+
+
+
+
     /* --- СТИЛИ ДЛЯ РАБОЧЕГО АССИСТЕНТА-КВИЗА --- */
 .quiz-step {
     display: none; /* Скрываем все шаги по умолчанию */
