@@ -1,120 +1,111 @@
-/* ==========================================================================
-   1. ИНТЕРАКТИВНЫЙ ПРЕМИУМ-АССИСТЕНТ «РОЗА»
-   ========================================================================== */
-
-// Функция для открытия и закрытия окна чата
-function toggleAssistant() {
-    const chatWindow = document.getElementById('assistant-window');
-    
-    if (!chatWindow) return;
-
-    if (chatWindow.style.display === 'flex') {
-        chatWindow.style.display = 'none';
-    } else {
-        chatWindow.style.display = 'flex';
-        // Если чат открывается впервые, можно прокрутить вниз
-        scrollToBottom();
-    }
-}
-
-// Быстрый вызов ассистента при нажатии главных кнопок "Записаться"
-function openAssistantWithAction(actionType) {
-    const chatWindow = document.getElementById('assistant-window');
-    if (chatWindow) {
-        chatWindow.style.display = 'flex';
-        executeAssistantLogic(actionType);
-    }
-}
-
-// Логика ответов ассистента в зависимости от выбора гостя
-function executeAssistantLogic(actionType) {
-    const chatBody = document.getElementById('assistant-body');
-    if (!chatBody) return;
-
-    let responseHTML = '';
-
-    if (actionType === 'book') {
-        responseHTML = `
-            <div class="chat-msg-bot">
-                ✨ <strong>Прекрасный выбор!</strong> Для фиксации персонального VIP-времени в Москва-Сити, пожалуйста, оставьте ваш контактный номер телефона. Наш премиум-консьерж свяжется с вами в течение 5 минут через WhatsApp или по звонку.
-            </div>
-        `;
-    } else if (actionType === 'prices') {
-        responseHTML = `
-            <div class="chat-msg-bot">
-                💎 <strong>Наш закрытый люкс-прайс:</strong><br><br>
-                • Стилистика & Уход — от 12 000 ₽<br>
-                • High Visage (Макияж) — от 8 000 ₽<br>
-                • Royal Nail SPA — от 6 500 ₽<br>
-                • Инъекции & Эстетика — от 15 000 ₽<br>
-                • Авторский SPA-массаж — от 10 000 ₽<br><br>
-                <em>В стоимость каждого визита включен премиальный бар и консьерж-сервис.</em>
-            </div>
-        `;
-    } else if (actionType === 'location') {
-        responseHTML = `
-            <div class="chat-msg-bot">
-                📍 <strong>Локация Silk & Rose:</strong><br>
-                Москва-Сити, Башня «Федерация Восток», 54 этаж, Crystal Suite 5401.<br><br>
-                Для гостей на автомобилях мы оформляем бесплатный подземный VIP-паркинг. Сообщите нам номер машины при подтверждении визита.
-            </div>
-        `;
-    }
-
-    // Добавляем ответ в окно чата
-    chatBody.innerHTML = responseHTML;
-    scrollToBottom();
-}
-
-// Вспомогательная функция для плавной прокрутки чата вниз
-function scrollToBottom() {
-    const chatBody = document.getElementById('assistant-body');
-    if (chatBody) {
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }
-}
-
-/* ==========================================================================
-   2. АНИМАЦИЯ ШАПКИ САЙТА ПРИ СКРОЛЛЕ (HEADER EFFECT)
-   ========================================================================== */
-window.addEventListener('scroll', () => {
-    const header = document.getElementById('main-header');
-    if (!header) return;
-
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
+// Ждем полную загрузку DOM
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollAnimation();
+    initAssistant();
+    initSmoothScroll();
 });
 
-/* ==========================================================================
-   3. ЭФФЕКТ ПЛАВНОГО ПОЯВЛЕНИЯ ЭЛЕМЕНТОВ (PREMIUM FADE-IN)
-   ========================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.luxury-service-card, .gallery-item, .info-lux-item');
-    
-    // Изначально задаем элементам прозрачность и сдвиг через JS
-    cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(40px)';
-        card.style.transition = 'all 0.8s cubic-bezier(0.25, 1, 0.5, 1)';
-    });
-
-    const checkVisibility = () => {
-        const triggerBottom = window.innerHeight * 0.85;
-
-        cards.forEach(card => {
-            const cardTop = card.getBoundingClientRect().top;
-
-            if (cardTop < triggerBottom) {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }
-        });
+/**
+ * Эффект плавного появления элементов при прокрутке (Scroll Reveal)
+ */
+function initScrollAnimation() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
     };
 
-    // Запускаем проверку при загрузке и при каждом скролле
-    checkVisibility();
-    window.addEventListener('scroll', checkVisibility);
-});
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Добавляем класс для запуска CSS-анимации
+                entry.target.classList.add('visible');
+                // Отписываемся, чтобы анимация срабатывала один раз
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Элементы для анимации (карточки услуг, отзывы, галерея)
+    const animElements = document.querySelectorAll('.service-card, .gallery-item, .hero-content, .about-content');
+    
+    animElements.forEach(el => {
+        el.classList.add('fade-in-element'); // Базовый класс скрытия в CSS
+        observer.observe(el);
+    });
+}
+
+/**
+ * Логика работы виджета онлайн-ассистента
+ */
+function initAssistant() {
+    const assistantBtn = document.getElementById('assistantBtn');
+    const assistantWidget = document.getElementById('assistantWidget');
+    const closeWidget = document.getElementById('closeWidget');
+    const assistantForm = document.getElementById('assistantForm');
+
+    if (!assistantBtn || !assistantWidget) return;
+
+    // Открытие виджета
+    assistantBtn.addEventListener('click', () => {
+        assistantWidget.classList.add('active');
+        // Легкая вибрация на смартфонах при клике
+        if (navigator.vibrate) navigator.vibrate(15);
+    });
+
+    // Закрытие виджета
+    closeWidget.addEventListener('click', () => {
+        assistantWidget.classList.remove('active');
+    });
+
+    // Закрытие по клику вне виджета
+    document.addEventListener('click', (e) => {
+        if (!assistantWidget.contains(e.target) && !assistantBtn.contains(e.target)) {
+            assistantWidget.classList.remove('active');
+        }
+    });
+
+    // Отправка формы записи
+    assistantForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('clientName').value;
+        const phone = document.getElementById('clientPhone').value;
+        const service = document.getElementById('clientService').value;
+
+        // Эмуляция отправки (в будущем здесь будет ваш API)
+        const submitBtn = assistantForm.querySelector('.submit-btn');
+        submitBtn.innerText = 'Запись оформлена ✨';
+        submitBtn.style.background = '#e6739f';
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+            alert(`Спасибо, ${name}! Вы успешно записались на услугу: "${service}". Наш менеджер свяжется с вами по телефону ${phone} в течение 5 минут для подтверждения.`);
+            assistantWidget.classList.remove('active');
+            assistantForm.reset();
+            submitBtn.innerText = 'Подтвердить запись';
+            submitBtn.disabled = false;
+            submitBtn.style.background = '';
+        }, 1200);
+    });
+}
+
+/**
+ * Плавный скролл до якорей (для мобильного меню и навигации)
+ */
+function initSmoothScroll() {
+    document.querySelectorAll('a[focus-scroll^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}

@@ -3,479 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Silk & Rose | Luxury Beauty Studio & Spa Moscow City</title>
-    <!-- Связь со внешним файлом стилей, который мы создадим следующим шагом -->
+    <title>AURA PRESTIGE | Премиальный Салон Красоты Москва-Сити</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Премиальные шрифты: Изящный Serif для заголовков и чистый Sans-Serif для текстов -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Подключаем премиальный шрифт -->
+    <link href="https://googleapis.com" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Эффект фонового премиального мерцания (управляется через CSS) -->
-    <div class="luxury-glow-overlay"></div>
+    <!-- Эффект мерцающего премиум-фона -->
+    <div class="glow-bg"></div>
 
-    <!-- Навигационная панель (Шапка) -->
-    <header class="main-header">
-        <div class="header-container">
-            <a href="#" class="logo-brand">
-                <span class="logo-main">Silk & Rose</span>
-                <span class="logo-sub">Premium Studio</span>
-            </a>
-            
-            <nav class="desktop-nav">
-                <a href="#about" class="nav-link">Философия</a>
-                <a href="#services" class="nav-link">Премиум Услуги</a>
-                <a href="#advantages" class="nav-link">Привилегии</a>
-                <a href="#gallery" class="nav-link">Атмосфера</a>
-                <a href="#reviews" class="nav-link">Отзывы</a>
-                <a href="#contacts" class="nav-link">Контакты</a>
-            </nav>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="logo">AURA <span>PRESTIGE</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#gallery">Галерея</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
 
-            <div class="header-actions">
-                <a href="tel:+74950000000" class="header-phone">+7 (495) 000-00-00</a>
-                <button class="btn-book-accent" onclick="openBookingModal()">Запись на визит</button>
-            </div>
-            
-            <!-- Мобильная кнопка меню (гамбургер) -->
-            <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Открыть меню">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <!-- Главный экран (Hero) -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Совершенство <br><span class="gradient-text">В Каждой Детали</span></h1>
+            <p class="fade-in-delay">Эксклюзивное пространство красоты в самом сердце столицы. Мы создаем не просто образы, мы формируем стиль жизни для тех, кто выбирает лучшее. Премиальные материалы, международный уровень мастеров и атмосфера абсолютной роскоши.</p>
+            <a href="#services" class="btn-premium">Погрузиться в роскошь</a>
+        </div>
+        <div class="hero-image-wrap">
+            <!-- ИЗОБРАЖЕНИЕ: images/hero_main_salon.jpg (Интерьер главного зала, розовый бархат, золото) -->
+            <img src="images/hero_main_salon.jpg" alt="Премиальный интерьер AURA" class="hero-img">
         </div>
     </header>
 
-    <!-- Мобильное навигационное меню (выезжающее) -->
-    <div class="mobile-navigation" id="mobileNav">
-        <nav class="mobile-nav-links">
-            <a href="#about" onclick="closeMobileMenu()">Философия</a>
-            <a href="#services" onclick="closeMobileMenu()">Премиум Услуги</a>
-            <a href="#advantages" onclick="closeMobileMenu()">Привилегии</a>
-            <a href="#gallery" onclick="closeMobileMenu()">Атмосфера</a>
-            <a href="#reviews" onclick="closeMobileMenu()">Отзывы</a>
-            <a href="#contacts" onclick="closeMobileMenu()">Контакты</a>
-        </nav>
-        <div class="mobile-nav-contacts">
-            <a href="tel:+74950000000" class="mobile-phone">+7 (495) 000-00-00</a>
-            <button class="btn-book-accent" onclick="closeMobileMenu(); openBookingModal();">Записаться</button>
+    <!-- О нас (Подробное описание) -->
+    <section id="about" class="about-section">
+        <div class="about-grid">
+            <div class="about-images">
+                <!-- ИЗОБРАЖЕНИЕ: images/about_zone_1.jpg (VIP-комната ожидания, бокал шампанского) -->
+                <img src="images/about_zone_1.jpg" alt="VIP Зона" class="about-img-1">
+                <!-- ИЗОБРАЖЕНИЕ: images/about_zone_2.jpg (Деталь интерьера, мрамор и розовая подсветка) -->
+                <img src="images/about_zone_2.jpg" alt="Интерьер детали" class="about-img-2">
+            </div>
+            <div class="about-text">
+                <h2>Философия Высокой Красоты</h2>
+                <p>Добро пожаловать в мир, где высокие стандарты сервиса встречаются с утонченной эстетикой. Наш салон в Москва-Сити разработан ведущими дизайнерами: мягкие пудрово-розовые оттенки, благородное золото и панорамные виды на мегаполис создают ощущение полета и приватности.</p>
+                <p>Мы работаем исключительно на брендах сегмента Lux (Oribe, Balmain, Christina Fitzgerald). Каждый визит к нам — это приватный ритуал заботы, сопровождающийся премиальной картой напитков и индивидуальным подходом. Наша миссия — подчеркнуть вашу уникальную природную элегантность.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел Услуг (Минимум 5 премиум услуг) -->
+    <section id="services" class="services-section">
+        <h2 class="section-title">Наши Эликсиры Красоты</h2>
+        <div class="services-grid">
+            
+            <!-- Услуга 1 -->
+            <div class="service-card">
+                <div class="service-img-container">
+                    <!-- ИЗОБРАЖЕНИЕ: images/service_hair.jpg (Стильное окрашивание, уход за волосами) -->
+                    <img src="images/service_hair.jpg" alt="Стилистика волос">
+                </div>
+                <h3>Hairstyle & Color Couture</h3>
+                <p>Высокое искусство колористики, молекулярное восстановление волос и подиумные укладки от амбассадоров мировых брендов.</p>
+            </div>
+
+            <!-- Услуга 2 -->
+            <div class="service-card">
+                <div class="service-img-container">
+                    <!-- ИЗОБРАЖЕНИЕ: images/service_nails.jpg (Премиальный маникюр, ухоженные руки) -->
+                    <img src="images/service_nails.jpg" alt="Эстетика ногтей">
+                </div>
+                <h3>Luxury Маникюр & Педикюр</h3>
+                <p>Спа-ритуалы для ваших рук и ногтей с использованием редких масел и эксклюзивных палитр покрытий.</p>
+            </div>
+
+            <!-- Услуга 3 -->
+            <div class="service-card">
+                <div class="service-img-container">
+                    <!-- ИЗОБРАЖЕНИЕ: images/service_face.jpg (Косметологическая процедура, сияющая кожа) -->
+                    <img src="images/service_face.jpg" alt="Эстетическая косметология">
+                </div>
+                <h3>Smart-Косметология Face Id</h3>
+                <p>Мгновенный лифтинг, безинъекционное омоложение и авторские массажные техники для сияния вашей кожи.</p>
+            </div>
+
+            <!-- Услуга 4 -->
+            <div class="service-card">
+                <div class="service-img-container">
+                    <!-- ИЗОБРАЖЕНИЕ: images/service_makeup.jpg (Профессиональный макияж, вечерний образ) -->
+                    <img src="images/service_makeup.jpg" alt="Макияж">
+                </div>
+                <h3>VIP Макияж & Архитектура бровей</h3>
+                <p>Создание образов для главных событий жизни, голливудский макияж и концептуальный стайлинг взгляда.</p>
+            </div>
+
+            <!-- Услуга 5 -->
+            <div class="service-card">
+                <div class="service-img-container">
+                    <!-- ИЗОБРАЖЕНИЕ: images/service_spa.jpg (Массаж, ароматерапия, расслабление) -->
+                    <img src="images/service_spa.jpg" alt="СПА Ритуалы">
+                </div>
+                <h3>Арома-СПА & Релаксация Body Mind</h3>
+                <p>Глубокое расслабление тела в атмосфере абсолютной тишины с использованием селективных эко-ароматов.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Большая Галерея Атмосферы -->
+    <section id="gallery" class="gallery-section">
+        <h2 class="section-title">Эстетика Пространства</h2>
+        <div class="gallery-grid">
+            <!-- ИЗОБРАЖЕНИЕ: images/gallery_1.jpg (Рабочая зона стилистов) -->
+            <div class="gallery-item"><img src="images/gallery_1.jpg" alt="Aura Interior 1"></div>
+            <!-- ИЗОБРАЖЕНИЕ: images/gallery_2.jpg (Девушка в кресле улыбается) -->
+            <div class="gallery-item"><img src="images/gallery_2.jpg" alt="Aura Interior 2"></div>
+            <!-- ИЗОБРАЖЕНИЕ: images/gallery_3.jpg (Красивые флаконы парфюма/косметики на полке) -->
+            <div class="gallery-item"><img src="images/gallery_3.jpg" alt="Aura Interior 3"></div>
+            <!-- ИЗОБРАЖЕНИЕ: images/gallery_4.jpg (Панорамное окно на Москва-Сити из салона) -->
+            <div class="gallery-item"><img src="images/gallery_4.jpg" alt="Aura Interior 4"></div>
+            <!-- ИЗОБРАЖЕНИЕ: images/gallery_5.jpg (Процесс нанесения макияжа close-up) -->
+            <div class="gallery-item"><img src="images/gallery_5.jpg" alt="Aura Interior 5"></div>
+            <!-- ИЗОБРАЖЕНИЕ: images/gallery_6.jpg (Зона педикюра с золотыми чашами) -->
+            <div class="gallery-item"><img src="images/gallery_6.jpg" alt="Aura Interior 6"></div>
+        </div>
+    </section>
+
+    <!-- Контакты и Адрес (Москва-Сити) -->
+    <section id="contacts" class="contacts-section">
+        <div class="contacts-box">
+            <h2>Ждем Вас в Сфере Блеска</h2>
+            <p class="address">📍 <strong>Адрес:</strong> г. Москва, Пресненская наб., 12, Комплекс «Федерация», Башня Восток, 54 этаж.</p>
+            <p class="hours">🕒 <strong>Режим работы:</strong> Ежедневно с 10:00 до 23:00 (До последнего гостя)</p>
+            <p class="phone">📞 <a href="tel:+74950000000">+7 (495) 000-00-00</a></p>
+            <button class="btn-premium open-chat-btn">Записаться онлайн</button>
+        </div>
+    </section>
+
+    <!-- Интерактивный Премиум Ассистент -->
+    <div class="assistant-widget" id="assistantWidget">
+        <div class="assistant-badge" id="assistantBadge">
+            <div class="pulse-ring"></div>
+            <span>✨ Aura Ассистент</span>
+        </div>
+        <div class="assistant-window" id="assistantWindow">
+            <div class="assistant-header">
+                <h3>Ваш личный ассистент Кристина</h3>
+                <button id="closeAssistant">&times;</button>
+            </div>
+            <div class="assistant-body" id="chatBody">
+                <div class="msg system">Здравствуйте! Рада приветствовать вас в AURA PRESTIGE. Какая процедура вас интересует? Выберите вариант или напишите мне.</div>
+            </div>
+            <div class="assistant-footer">
+                <div class="quick-replies">
+                    <button class="reply-btn">Записаться на окрашивание</button>
+                    <button class="reply-btn">Цены на маникюр</button>
+                    <button class="reply-btn">Как к нам пройти?</button>
+                </div>
+                <div class="input-wrap">
+                    <input type="text" id="assistantInput" placeholder="Ваш вопрос...">
+                    <button id="sendMessage">⚡</button>
+                </div>
+            </div>
         </div>
     </div>
 
-    <main>
-        <!-- Главный экран (Hero Section) -->
-        <section class="hero-fullscreen">
-            <div class="hero-video-bg">
-                <!-- Здесь может быть фоновое видео, пока заменяем эстетичным градиентом в CSS -->
-            </div>
-            <div class="hero-inner-content">
-                <span class="hero-subtitle">Закрытый клуб эстетики и премиального ухода</span>
-                <h1 class="hero-title">Ваша красота как высшая форма искусства</h1>
-                <p class="hero-description">Элитное пространство в самом сердце деловой столицы. Индивидуальные бьюти-ритуалы, опережающие тренды, и безупречный сервис, созданный восхищать.</p>
-                <div class="hero-buttons-group">
-                    <button class="btn-luxury-primary" onclick="openBookingModal()">Забронировать визит</button>
-                    <a href="#services" class="btn-luxury-secondary">Посмотреть меню услуг</a>
-                </div>
-            </div>
-            <div class="hero-scroll-indicator">
-                <span class="mouse-icon"><span class="wheel"></span></span>
-                <span class="scroll-text">Листайте вниз</span>
-            </div>
-        </section>
-
-        <!-- О нас / Философия (Много глубокого премиального текста) -->
-        <section id="about" class="about-premium-section">
-            <div class="section-grid-container">
-                <div class="about-text-content">
-                    <span class="section-tag">High-End Beauty Space</span>
-                    <h2 class="section-title-luxury">Философия абсолютного совершенства в Silk & Rose</h2>
-                    
-                    <p class="about-paragraph-lead">Студия Silk & Rose — это не просто салон красоты, это эксклюзивная экосистема для ментального и физического обновления, созданная для тех, чей главный ресурс — время, а главный критерий — бескомпромиссное качество.</p>
-                    
-                    <p class="about-paragraph">Мы убеждены, что истинная роскошь кроется в деталях. Наш интерьер, выполненный в благородных пудрово-розовых, жемчужных и золотых тонах, призван погрузить вас в атмосферу умиротворения и уединенности, изолируя от стремительного ритма мегаполиса. Каждый элемент пространства продуман до мелочей: от мягкого анатомического премиум-света, не утомляющего глаза, до совершенной системы фильтрации и ароматизации воздуха редкими селективными парфюмерными композициями.</p>
-                    
-                    <p class="about-paragraph">Каждого гостя ожидает безупречный VIP-сервис. Наша консьерж-служба организует визит с учетом любых ваших пожеланий: от полной приватности (бронирование зала целиком) до параллельного выполнения до 4-х процедур в четыре руки для экономии вашего драгоценного времени. Во время визита вам предложат карту элитных напитков, коллекционный чай или бокал премиального шампанского.</p>
-                    
-                    <div class="about-signatures-block">
-                        <div class="signature-item">
-                            <span class="signature-number">100%</span>
-                            <span class="signature-label">Приватность и конфиденциальность</span>
-                        </div>
-                        <div class="signature-item">
-                            <span class="signature-number">Luxe</span>
-                            <span class="signature-label">Только селективные бренды косметики</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="about-visual-content">
-                    <div class="image-wrapper-main">
-                        <!-- ФОТО 1: Роскошный главный интерьер студии -->
-                        <img src="interier_salona_premium.jpg" alt="Интерьер премиального пространства Silk & Rose" class="luxury-img-fluid">
-                        <div class="gold-decorative-frame"></div>
-                    </div>
-                    <div class="image-wrapper-sub">
-                        <!-- ФОТО 2: Деталь сервиса, например бокал на мраморном столике -->
-                        <img src="galereya_foto_2_shampanskoe.jpg" alt="Премиальный консьерж-сервис для гостей" class="luxury-img-fluid-sub">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Меню Премиальных Услуг (5 детализированных карточек с большими объемами текста) -->
-        <section id="services" class="services-premium-section">
-            <div class="section-center-header">
-                <span class="section-tag-center">Menu De Beauté</span>
-                <h2 class="section-title-luxury-center">Эксклюзивные бьюти-программы</h2>
-                <p class="section-subtitle-text">Авторские методики преображения, выполняемые международными топ-стилистами и дипломированными экспертами индустрии.</p>
-            </div>
-
-            <div class="services-extended-list">
-                
-                <!-- Услуга 1: Волосы -->
-                <div class="service-extended-card">
-                    <div class="service-card-image-box">
-                        <!-- ФОТО 3: Процесс ухода за волосами или стрижки -->
-                        <img src="usluga_1_parikmaher.jpg" alt="Высокое искусство стилистики волос" class="service-img">
-                        <span class="service-price-tag">от 8 500 ₽</span>
-                    </div>
-                    <div class="service-card-text-box">
-                        <span class="service-card-num">01</span>
-                        <h3>Высокая стилистика и молекулярная реконструкция волос</h3>
-                        <p class="service-card-description">Премиальный уход за волосами в нашей студии — это синергия искусства колористики и последних достижений трихологии. Наши топ-стилисты, регулярно проходящие стажировки в модных домах Европы, создают умные стрижки, идеально сохраняющие форму без укладки, и выполняют сложные техники окрашивания (AirTouch, Шатуш, Балаяж) любой сложности без повреждения структуры.</p>
-                        <p class="service-card-subtext">В работе используются только селективные ритуалы восстановления: японские молекулярные программы детоксикации, люксовые уходы на основе редких масел и кашемировое протезирование волос. Процедура подбирается индивидуально после компьютерной диагностики кожи головы.</p>
-                        <div class="service-card-actions">
-                            <button class="btn-service-action" onclick="openBookingModalWithService('Стилистика волос')">Записаться на ритуал</button>
-                            <button class="btn-service-more" onclick="toggleDetails('service-details-1')">Подробнее об этапах</button>
-                        </div>
-                        <div id="service-details-1" class="service-hidden-details">
-                            <p>В ритуал включено: компьютерная трихограмма, глубокое очищение детокс-шампунем, нанесение персонального коктейля из аминокислот, крио- или термоактивация состава, молекулярный защитный экран и индивидуальный подбор домашнего ухода от культовых мировых брендов.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Услуга 2: Макияж и Брови -->
-                <div class="service-extended-card reverse-row">
-                    <div class="service-card-image-box">
-                        <!-- ФОТО 4: Премиальный макияж крупным планом -->
-                        <img src="usluga_2_makiyazh.jpg" alt="Эксклюзивный визаж и архитектура взгляда" class="service-img">
-                        <span class="service-price-tag">от 6 000 ₽</span>
-                    </div>
-                    <div class="service-card-text-box">
-                        <span class="service-card-num">02</span>
-                        <h3>Эстетика взгляда & Haute Couture Визаж</h3>
-                        <p class="service-card-description">Мы создаем безупречный макияж для любого знакового события в вашей жизни — от деловых переговоров в Сити до роскошных светских раутов, свадебных торжеств или глянцевых фотосессий. Наши визажисты работают в концепции «естественной роскоши», подчеркивая ваши достоинства и создавая идеальную, светящуюся изнутри кожу без эффекта маски.</p>
-                        <p class="service-card-subtext">Архитектура бровей и ламинирование ресниц выполняются по уникальным мануальным техникам с учетом золотого сечения лица. Мы применяем исключительно люксовую декоративную косметику и гипоаллергенные пигменты премиум-класса, которые гарантируют стойкость образа более 24 часов.</p>
-                        <div class="service-card-actions">
-                            <button class="btn-service-action" onclick="openBookingModalWithService('Визаж и брови')">Записаться на ритуал</button>
-                            <button class="btn-service-more" onclick="toggleDetails('service-details-2')">Подробнее об этапах</button>
-                        </div>
-                        <div id="service-details-2" class="service-hidden-details">
-                            <p>В ритуал включено: деликатный демакияж, патчи с частицами золота, создание архитектуры бровей пинцетом/нитью, спа-окрашивание органической хной или премиальным красителем, нанесение питательного сывороточного комплекса и финальный стайлинг.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Услуга 3: Ногтевой сервис -->
-                <div class="service-extended-card">
-                    <div class="service-card-image-box">
-                        <!-- ФОТО 5: Роскошный маникюр, спа уход для рук -->
-                        <img src="usluga_3_manikyur.jpg" alt="Люксовый ногтевой сервис и спа" class="service-img">
-                        <span class="service-price-tag">от 5 000 ₽</span>
-                    </div>
-                    <div class="service-card-text-box">
-                        <span class="service-card-num">03</span>
-                        <h3>Медицинский и эстетический ногтевой спа-сервис</h3>
-                        <p class="service-card-description">Ногтевой сервис в Silk & Rose перевернул представление о классическом маникюре. Мы предлагаем безопасный пилочный маникюр по атравматичной технологии, аппаратный педикюр на премиальном немецком оборудовании, а также глубокие омолаживающие спа-ритуалы для кожи рук и стоп с использованием средств на основе термальной воды, морского коллагена и экстрактов редких растений.</p>
-                        <p class="service-card-subtext">Для покрытий используется богатая палитра безопасных гипоаллергенных покрытий люкс-сегмента, терапевтические японские системы для укрепления ногтевой пластины и стойкие гель-лаки последнего поколения с изысканным ультраглянцевым блеском.</p>
-                        <div class="service-card-actions">
-                            <button class="btn-service-action" onclick="openBookingModalWithService('Ногтевой сервис')">Записаться на ритуал</button>
-                            <button class="btn-service-more" onclick="toggleDetails('service-details-3')">Подробнее об этапах</button>
-                        </div>
-                        <div id="service-details-3" class="service-hidden-details">
-                            <p>В ритуал включено: расслабляющая ванночка с минеральными солями, деликатная обработка, скрабирование скрабом с микрочастицами кварца, парафинотерапия или маска из глубоководных водорослей, массаж кистей до локтя и безупречное покрытие.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Услуга 4: Косметология -->
-                <div class="service-extended-card reverse-row">
-                    <div class="service-card-image-box">
-                        <!-- ФОТО 6: Косметологическая процедура, маска -->
-                        <img src="usluga_4_kosmetolog.jpg" alt="Инновационная и мануальная косметология" class="service-img">
-                        <span class="service-price-tag">от 12 000 ₽</span>
-                    </div>
-                    <div class="service-card-text-box">
-                        <span class="service-card-num">04</span>
-                        <h3>Инновационная косметология и неинвазивное омоложение</h3>
-                        <p class="service-card-description">Наша концепция в косметологии — достижение мгновенного и пролонгированного anti-age эффекта без инъекций, боли и реабилитации. Программы студии направлены на глубокое клеточное восстановление, скульптурирование овала лица и возвращение коже естественного сияния молодости. Каждая процедура адаптируется под персональный бьюти-код гостя.</p>
-                        <p class="service-card-subtext">Мы предлагаем эксклюзивные мануальные техники (французский скульптурный, миофасциальный и букальный массажи), карбокситерапию, газожидкостный пилинг и уходы на базе революционной швейцарской и японской космецевтики с высокой концентрацией пептидов и гиалуроновой кислоты.</p>
-                        <div class="service-card-actions">
-                            <button class="btn-service-action" onclick="openBookingModalWithService('Косметология лица')">Записаться на ритуал</button>
-                            <button class="btn-service-more" onclick="toggleDetails('service-details-4')">Подробнее об этапах</button>
-                        </div>
-                        <div id="service-details-4" class="service-hidden-details">
-                            <p>В ритуал включено: энзимное очищение кожи, тонизация, глубокий мануальный массаж лица, шеи и зоны декольте, нанесение индивидуальной сыворотки под альгинатную или гидрогелевую маску, обработка микротоками и финишный защитный флюид.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Услуга 5: SPA и Массаж -->
-                <div class="service-extended-card">
-                    <div class="service-card-image-box">
-                        <!-- ФОТО 7: Свечи, массаж тела -->
-                        <img src="usluga_5_spa_massazh.jpg" alt="Абсолютный релакс и спа ритуалы тела" class="service-img">
-                        <span class="service-price-tag">от 10 500 ₽</span>
-                    </div>
-                    <div class="service-card-text-box">
-                        <span class="service-card-num">05</span>
-                        <h3>Эксклюзивные SPA-ритуалы и терапия тела</h3>
-                        <p class="service-card-description">Оставьте суету и стресс за дверями Silk & Rose. Наши авторские спа-ритуалы для тела разработаны для полного снятия мышечного напряжения, восстановления энергетического баланса и детоксикации организма. В уютной тишине спа-кабинета при приглушенном мерцании свечей вы погрузитесь в мир абсолютного блаженства и гармонии.</p>
-                        <p class="service-card-subtext">Вы можете выбрать балийский расслабляющий массаж, лимфодренажные техники, обертывания с использованием натурального премиального шоколада, микронизированных водорослей или золотой пудры. Все сессии сопровождаются элементами ароматерапии с чистейшими эфирными маслами из Граса.</p>
-                        <div class="service-card-actions">
-                            <button class="btn-service-action" onclick="openBookingModalWithService('SPA и Массаж')">Записаться на ритуал</button>
-                            <button class="btn-service-more" onclick="toggleDetails('service-details-5')">Подробнее об этапах</button>
-                        </div>
-                        <div id="service-details-5" class="service-hidden-details">
-                            <p>В ритуал включено: распаривание кожи с аромамаслами, деликатный солевой или кокосовый пилинг всего тела, лимфодренажный или релакс-массаж теплыми камнями/маслами, питательное обертывание и завершающий увлажняющий уход.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Преимущества (Интерактивные элементы и переливания) -->
-        <section id="advantages" class="advantages-section">
-            <div class="section-center-header">
-                <span class="section-tag-center">Premium Standards</span>
-                <h2 class="section-title-luxury-center">Почему выбирают Silk & Rose</h2>
-            </div>
-            <div class="advantages-grid">
-                <div class="advantage-card">
-                    <div class="adv-icon">✨</div>
-                    <h3>Топ-Стилисты</h3>
-                    <p>Специалисты международного класса, сертифицированные эксперты бьюти-индустрии.</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="adv-icon">🔒</div>
-                    <h3>Полная Приватность</h3>
-                    <p>Возможность VIP-изоляции во время процедур и скрытый доступ для медийных персон.</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="adv-icon">💎</div>
-                    <h3>Luxe Косметика</h3>
-                    <p>Эксклюзивные контракты с лучшими мировыми брендами и гарантированная оригинальность.</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="adv-icon">⚡</div>
-                    <h3>Параллельный Сервис</h3>
-                    <p>Экономия времени: выполняем до 4-х сложных процедур одновременно без доплат.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Галерея (Много качественных фотографий сhover-эффектами) -->
-        <section id="gallery" class="gallery-premium-section">
-            <div class="section-center-header">
-                <span class="section-tag-center">Visual Aesthetics</span>
-                <h2 class="section-title-luxury-center">Атмосфера роскоши в деталях</h2>
-                <p class="section-subtitle-text">Загляните в мир изысканного стиля, панорамных видов и идеальных бьюти-процессов.</p>
-            </div>
-            
-            <div class="gallery-interactive-grid">
-                <!-- Каждая фотография кликабельна для увеличения (в будущем JS) -->
-                <div class="gallery-item-wrapper" onclick="openLightbox(this)">
-                    <!-- ФОТО 8: Зона ожидания / ресепшн -->
-                    <img src="galereya_foto_1_zona_ozhidaniya.jpg" alt="Роскошная вельветовая зона ожидания салона" class="gallery-img-item">
-                    <div class="gallery-item-overlay"><span>Увеличить фото</span></div>
-                </div>
-                <div class="gallery-item-wrapper" onclick="openLightbox(this)">
-                    <!-- ФОТО 9: Детали интерьера мрамор/розовое золото -->
-                    <img src="galereya_foto_3_rabochee_mesto.jpg" alt="Рабочее место стилиста с премиальным освещением" class="gallery-img-item">
-                    <div class="gallery-item-overlay"><span>Увеличить фото</span></div>
-                </div>
-                <div class="gallery-item-wrapper" onclick="openLightbox(this)">
-                    <!-- ФОТО 10: Полки с селективной косметикой -->
-                    <img src="galereya_foto_4_detali_interiera.jpg" alt="Изысканные детали пудрово-розового интерьера" class="gallery-img-item">
-                    <div class="gallery-item-overlay"><span>Увеличить фото</span></div>
-                </div>
-                <div class="gallery-item-wrapper" onclick="openLightbox(this)">
-                    <!-- ФОТО 11: Модель с красивой укладкой в салоне -->
-                    <img src="galereya_foto_5_shastlivaya_klientka.jpg" alt="Счастливая гостья Silk & Rose" class="gallery-img-item">
-                    <div class="gallery-item-overlay"><span>Увеличить фото</span></div>
-                </div>
-                <div class="gallery-item-wrapper" onclick="openLightbox(this)">
-                    <!-- ФОТО 12: Флаконы духов или брендовые крема -->
-                    <img src="galereya_foto_6_kosmetika_luxe.jpg" alt="Селективные косметические линейки на полках" class="gallery-img-item">
-                    <div class="gallery-item-overlay"><span>Увеличить фото</span></div>
-                </div>
-                <div class="gallery-item-wrapper" onclick="openLightbox(this)">
-                    <!-- ФОТО 13: Дополнительное атмосферное фото, например вид на Сити -->
-                    <img src="galereya_foto_7_vid_city.jpg" alt="Вид на Москву-Сити из окон нашей студии" class="gallery-img-item">
-                    <div class="gallery-item-overlay"><span>Увеличить фото</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Отзывы гостей -->
-        <section id="reviews" class="reviews-section">
-            <div class="section-center-header">
-                <span class="section-tag-center">Guest Opinions</span>
-                <h2 class="section-title-luxury-center">Отзывы наших постоянных гостей</h2>
-            </div>
-            <div class="reviews-slider-container">
-                <!-- Отзыв 1 -->
-                <div class="review-slide-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">«Самый лучший пилочный маникюр в Москве делают только здесь! Атмосфера в башне Федерация потрясающая, очень расслабляет нежно-розовый интерьер и забота администраторов. Шампанское превосходное!»</p>
-                    <span class="review-author">— Кристина В., инвестор</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Контакты и Карта -->
-        <section id="contacts" class="contacts-premium-section">
-            <div class="contacts-layout-grid">
-                <div class="contacts-info-side">
-                    <span class="section-tag">Location & Hours</span>
-                    <h2 class="section-title-luxury">Ждем вас в Silk & Rose</h2>
-                    <p class="contacts-lead-text">Визиты осуществляются по предварительной записи для сохранения абсолютной конфиденциальности и комфорта гостей.</p>
-                    
-                    <div class="contacts-data-list">
-                        <div class="contact-data-item">
-                            <span class="item-icon">📍</span>
-                            <div class="item-text-block">
-                                <h4>Наш адрес:</h4>
-                                <p>Москва-Сити, Пресненская наб., 12, Башня «Федерация Восток», 54 этаж, апартаменты 5412</p>
-                            </div>
-                        </div>
-                        <div class="contact-data-item">
-                            <span class="item-icon">📞</span>
-                            <div class="item-text-block">
-                                <h4>Телефон VIP-линии:</h4>
-                                <p><a href="tel:+74950000000">+7 (495) 000-00-00</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-data-item">
-                            <span class="item-icon">✉️</span>
-                            <div class="item-text-block">
-                                <h4>Для предложений и медиа:</h4>
-                                <p>luxe@silkandrose-premium.ru</p>
-                            </div>
-                        </div>
-                        <div class="contact-data-item">
-                            <span class="item-icon">⏱️</span>
-                            <div class="item-text-block">
-                                <h4>График работы:</h4>
-                                <p>Ежедневно с 10:00 до 22:00 (Доступ после 22:00 по согласованию с топ-мастером)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contacts-interactive-side">
-                    <!-- Форма быстрой обратной связи на сайте -->
-                    <div class="luxury-form-card">
-                        <h3>Заказать закрытый звонок</h3>
-                        <p>Оставьте ваши контакты, и наш консьерж свяжется со специального защищенного номера.</p>
-                        <form id="callbackForm" onsubmit="handleFormSubmit(event)">
-                            <div class="form-input-wrapper">
-                                <input type="text" placeholder="Ваше изысканное имя" required class="luxury-input">
-                            </div>
-                            <div class="form-input-wrapper">
-                                <input type="tel" placeholder="+7 (___) ___-__-__" required class="luxury-input">
-                            </div>
-                            <div class="form-input-wrapper">
-                                <select class="luxury-input-select">
-                                    <option value="" disabled selected>Желаемая услуга (необязательно)</option>
-                                    <option value="волосы">Высокая стилистика волос</option>
-                                    <option value="визаж">Эстетика взгляда & Визаж</option>
-                                    <option value="маникюр">Ногтевой спа-сервис</option>
-                                    <option value="косметология">Инновационная косметология</option>
-                                    <option value="спа">Эксклюзивные SPA-ритуалы</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn-luxury-form-submit">Отправить запрос</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Подвал сайта (Footer) -->
-    <footer class="luxury-footer">
-        <div class="footer-top-row">
-            <div class="footer-brand-column">
-                <span class="footer-logo">Silk & Rose</span>
-                <p>Премиальная бьюти-экосистема. Создаем совершенство, вдохновляем на уверенность.</p>
-            </div>
-            <div class="footer-links-column">
-                <h4>Навигация</h4>
-                <a href="#about">О нас</a>
-                <a href="#services">Услуги</a>
-                <a href="#gallery">Галерея</a>
-                <a href="#contacts">Контакты</a>
-            </div>
-            <div class="footer-legal-column">
-                <h4>Приватность</h4>
-                <a href="#">Политика конфиденциальности</a>
-                <a href="#">Соглашение о персональных данных</a>
-                <a href="#">Правила клуба Silk & Rose</a>
-            </div>
-        </div>
-        <div class="footer-bottom-row">
-            <p>&copy; 2026 Silk & Rose Premium Studio. Все права защищены. Разработано в стиле Luxury Luxury.</p>
-        </div>
+    <footer class="main-footer">
+        <p>&copy; 2026 AURA PRESTIGE LUXURY STUDIO. Все права защищены.</p>
     </footer>
 
-    <!-- ================= ИНТЕРАКТИВНЫЙ VIP АССИСТЕНТ «РОЗА» ================= -->
-    <div class="assistant-fixed-badge" id="assistantBadge" onclick="toggleAssistantWindow()">
-        <span class="pulse-ring"></span>
-        <div class="badge-content">
-            <span class="badge-avatar">✨</span>
-            <span class="badge-text">Ассистент Роза</span>
-        </div>
-    </div>
-
-    <div class="assistant-chat-window" id="assistantWindow">
-        <div class="chat-header">
-            <div class="chat-manager-info">
-                <span class="manager-avatar">🌹</span>
-                <div>
-                    <h4>Роза</h4>
-                    <span class="manager-status">Ваш личный бьюти-консьерж</span>
-                </div>
-            </div>
-            <button class="chat-close-btn" onclick="toggleAssistantWindow()" aria-label="Закрыть чат">&times;</button>
-        </div>
-        
-        <div class="chat-body" id="chatBody">
-            <div class="chat-message system-msg">
-                <p>Приветствую вас в Silk & Rose Premium. Я помогу вам мгновенно сориентироваться в услугах, узнать актуальные цены или забронировать VIP-зал в Москва-Сити. Чем я могу вас порадовать?</p>
-            </div>
-        </div>
-        
-        <div class="chat-footer-buttons">
-            <button class="chat-action-btn" onclick="triggerAssistantDialogue('booking')">📅 Забронировать время</button>
-            <button class="chat-action-btn" onclick="triggerAssistantDialogue('prices')">💎 Посмотреть люкс-цены</button>
-            <button class="chat-action-btn" onclick="triggerAssistantDialogue('location')">📍 Как добраться (Пропуск)</button>
-        </div>
-    </div>
-
-    <!-- ================= МОДАЛЬНОЕ ОКНО ЗАПИСИ (MAIN BOOKING MODAL) ================= -->
-    <div class="modal-overlay" id="bookingModal">
-        <div class="modal-window-luxury">
-            <button class="modal-close-btn" onclick="closeBookingModal()">&times;</button>
-            <div class="modal-header-luxury">
-                <h3>Запись на премиальный визит</h3>
-                <p>Заполните форму, и наш менеджер свяжется с вами для подтверждения времени и оформления пропуска на территорию Сити.</p>
-            </div>
-            <form id="modalMainForm" onsubmit="handleModalFormSubmit(event)">
-                <div class="modal-field">
-                    <label for="modalName">Ваше имя</label>
-                    <input type="text" id="modalName" required class="luxury-input" placeholder="Александра">
-                </div>
-                
+    <script src="script.js"></script>
+</body>
+</html>
