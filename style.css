@@ -613,10 +613,62 @@ h1, h2, h3 {
     }
     
 
-/* --- БАЗОВЫЕ СТИЛИ КОНТЕЙНЕРА АССИСТЕНТА (ФИКСАЦИЯ В УГЛУ) --- */
-.assistant-widget {
+/* --- СТИЛИ ПЛАВАЮЩЕЙ КНОПКИ ВЫЗОВА --- */
+.assistant-toggle-btn {
     position: fixed;
     bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 24px;
+    background: linear-gradient(135deg, #ff8da1, #e6739f);
+    border: none;
+    border-radius: 30px;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(230, 115, 159, 0.4);
+    z-index: 9999;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.assistant-toggle-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(230, 115, 159, 0.6);
+}
+
+/* Пульсирующий круг вокруг кнопки для привлечения внимания */
+.pulse-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    border: 2px solid #ff8da1;
+    animation: buttonPulse 2s infinite;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+@keyframes buttonPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1.25);
+        opacity: 0;
+    }
+}
+
+/* СТИЛИ КОНТЕЙНЕРА АССИСТЕНТА */
+.assistant-widget {
+    position: fixed;
+    bottom: 100px; /* Приподнят над кнопкой */
     right: 30px;
     width: 380px;
     max-width: calc(100vw - 40px);
@@ -626,14 +678,13 @@ h1, h2, h3 {
     border: 1px solid rgba(230, 115, 159, 0.2);
     z-index: 10000;
     overflow: hidden;
-    display: none; /* Скрыт по умолчанию, JavaScript покажет его при клике */
+    display: none;
     flex-direction: column;
 }
 
-/* Класс, который JavaScript добавляет при открытии */
 .assistant-widget.active {
     display: flex;
-    animation: slideUp 0.4s ease-out;
+    animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .widget-header {
@@ -697,7 +748,7 @@ h1, h2, h3 {
 @keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateY(40px) scale(0.95);
+        transform: translateY(30px) scale(0.95);
     }
     to {
         opacity: 1;
@@ -710,8 +761,24 @@ h1, h2, h3 {
     to { opacity: 1; }
 }
 
-/* Мобильная адаптация */
+/* Мобильная адаптация кнопки и окна */
 @media (max-width: 480px) {
+    .assistant-toggle-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 0.85rem;
+    }
+    .btn-text {
+        display: none; /* На мобилках оставляем только круглую кнопку-иконку для экономии места */
+    }
+    .assistant-toggle-btn {
+        border-radius: 50%;
+        width: 55px;
+        height: 55px;
+        padding: 0;
+        justify-content: center;
+    }
     .assistant-widget {
         bottom: 0;
         right: 0;
@@ -721,14 +788,14 @@ h1, h2, h3 {
     }
 }
 
-/* --- СТИЛИ ДЛЯ РАБОЧЕГО АССИСТЕНТА-КВИЗА --- */
+/* СТИЛИ ШАГОВ КВИЗА */
 .quiz-step {
-    display: none; /* Скрываем все шаги по умолчанию */
+    display: none;
     animation: fadeIn 0.4s ease-out;
 }
 
 .quiz-step.active {
-    display: block; /* Показываем только активный шаг */
+    display: block;
 }
 
 .quiz-question {
@@ -737,7 +804,6 @@ h1, h2, h3 {
     color: #2c2c2c;
     margin-bottom: 20px;
     font-weight: 600;
-    line-height: 1.4;
 }
 
 .quiz-options {
@@ -747,7 +813,6 @@ h1, h2, h3 {
     margin-bottom: 25px;
 }
 
-/* Красивые кастомные кнопки-варианты */
 .quiz-opt {
     display: block;
     position: relative;
@@ -759,14 +824,11 @@ h1, h2, h3 {
     font-size: 0.95rem;
     color: #4a4a4a;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
 }
 
-/* Скрываем стандартный дефолтный кружок радио-кнопки */
 .quiz-opt input[type="radio"] {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
 }
 
 .quiz-opt:hover {
@@ -775,16 +837,13 @@ h1, h2, h3 {
     transform: translateY(-2px);
 }
 
-/* Стиль для выбранного варианта ответа */
 .quiz-opt:has(input[type="radio"]:checked) {
     background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
     border-color: #e6739f;
-    box-shadow: 0 4px 15px rgba(230, 115, 159, 0.2);
     font-weight: 600;
     color: #b84a74;
 }
 
-/* Финальные инпуты */
 .quiz-inputs {
     display: flex;
     flex-direction: column;
@@ -798,22 +857,17 @@ h1, h2, h3 {
     border: 1px solid rgba(230, 115, 159, 0.3);
     border-radius: 12px;
     font-size: 1rem;
-    background: #fff;
     outline: none;
-    transition: all 0.3s;
 }
 
 .premium-input:focus {
     border-color: #e6739f;
-    box-shadow: 0 0 10px rgba(230, 115, 159, 0.2);
 }
 
-/* Кнопки навигации */
 .quiz-navigation {
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    margin-top: 15px;
 }
 
 .quiz-nav-btn {
@@ -825,17 +879,10 @@ h1, h2, h3 {
     border-radius: 12px;
     cursor: pointer;
     font-weight: 600;
-    transition: all 0.3s;
 }
 
 .quiz-nav-btn.next {
     background: linear-gradient(135deg, #ff8da1, #e6739f);
     color: #fff;
     border: none;
-    box-shadow: 0 4px 15px rgba(230, 115, 159, 0.3);
-}
-
-.quiz-nav-btn:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
 }

@@ -167,6 +167,30 @@
         <!-- Тема письма -->
         <input type="hidden" name="subject" value="Новая премиум-запись с сайта салона!">
 
+   <!-- Фиксированная плавающая кнопка вызова ассистента -->
+<button class="assistant-toggle-btn" id="assistantBtn">
+    <span class="pulse-ring"></span>
+    <span class="btn-icon">✨</span>
+    <span class="btn-text">Онлайн запись</span>
+</button>
+
+<!-- Интерактивный Ассистент-Квиз -->
+<div class="assistant-widget" id="assistantWidget">
+    <div class="widget-header">
+        <div class="assistant-info">
+            <div class="assistant-avatar">✨</div>
+            <div>
+                <h4>Ваш AI-Ассистент</h4>
+                <p>Подбор идеального ухода</p>
+            </div>
+        </div>
+        <button class="close-btn" id="closeWidget">&times;</button>
+    </div>
+
+    <form id="assistantForm" action="https://web3forms.com" method="POST">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="Новая премиум-запись с сайта салона!">
+
         <!-- Квиз: Шаг 1 -->
         <div class="quiz-step active" data-step="1">
             <p class="quiz-question">Какую зону вы хотите преобразить?</p>
