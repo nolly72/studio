@@ -626,12 +626,11 @@ h1, h2, h3 {
     border: 1px solid rgba(230, 115, 159, 0.2);
     z-index: 10000;
     overflow: hidden;
-    display: none; /* Скрыт по умолчанию, JS покажет при клике */
+    display: none; /* Скрыт по умолчанию, JavaScript покажет его при клике */
     flex-direction: column;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Класс, который JS добавляет при открытии */
+/* Класс, который JavaScript добавляет при открытии */
 .assistant-widget.active {
     display: flex;
     animation: slideUp 0.4s ease-out;
@@ -695,7 +694,6 @@ h1, h2, h3 {
     background: #fff;
 }
 
-/* Анимация плавного появления */
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -707,7 +705,12 @@ h1, h2, h3 {
     }
 }
 
-/* Адаптив под мобильные телефоны */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Мобильная адаптация */
 @media (max-width: 480px) {
     .assistant-widget {
         bottom: 0;
@@ -718,12 +721,7 @@ h1, h2, h3 {
     }
 }
 
-
-
-
-
-
-    /* --- СТИЛИ ДЛЯ РАБОЧЕГО АССИСТЕНТА-КВИЗА --- */
+/* --- СТИЛИ ДЛЯ РАБОЧЕГО АССИСТЕНТА-КВИЗА --- */
 .quiz-step {
     display: none; /* Скрываем все шаги по умолчанию */
     animation: fadeIn 0.4s ease-out;
